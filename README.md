@@ -21,7 +21,7 @@ All the documentation on how to make use of this repository is hosted on https:/
 * `terraform/` contains some examples for provisioning servers. See the [Administrator's Guide](https://docs.social.network) for more info.
 * `bin/` contains some helper bash scripts. Some are used in the [Administrator's Guide](https://docs.social.network) when installing wire-server, and some are used for developers/maintainers of this repository.
 
-## For Maintainers of society-server-deploy
+## For Maintainers of society-server-deployer
 
 ### git branches
 
