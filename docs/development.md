@@ -93,7 +93,20 @@ From `server-deploy/ansible`:
 cp hosts.example-demo.ini hosts.ini
 ```
 
-Open hosts.ini and replace `X.X.X.X` with the IP address of your virtual machine that you use for ssh access.  You can try using ``sed -i 's/X.X.X.X/1.2.3.4/g' hosts.ini``.
+Create an ssh key for ansible to access the machine with:
+
+```
+ssh-keygen -t rsa -b 4096
+# store the file to /root/.ssh/ansible
+```
+
+Save the key to authorized keys with
+
+```
+cat ~/.ssh/ansible.pub >> ~/.ssh/authorized_keys
+```
+
+And finally hosts.ini and replace `X.X.X.X` with the IP address of your virtual machine that you use for ssh access you can try using ``sed -i 's/X.X.X.X/1.2.3.4/g' hosts.ini``. Also set ansible_ssh_private_key_file to `/root/.ssh/ansible`.
 
 ## How to install kubernetes
 --------------------------
@@ -113,11 +126,13 @@ cp artifacts/admin.conf ~/.kube/config
 
 Make sure you can reach the server:
 
-  `kubectl version`
+```
+kubectl version
+```
 
 should give output similar to this:
 
 ```
-Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.2", GitCommit:"66049e3b21efe110454d67df4fa62b08ea79a19b", GitTreeState:"clean", BuildDate:"2019-05-16T16:23:09Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
+Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.2", GitCommit:"66049e3b21efe110454d67df4fa62b08ea79a19b", GitTreeState:"clean", BuildDate:"2019-05-16T16:14:56Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
 Server Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.2", GitCommit:"66049e3b21efe110454d67df4fa62b08ea79a19b", GitTreeState:"clean", BuildDate:"2019-05-16T16:14:56Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
 ```

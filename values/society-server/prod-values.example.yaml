@@ -37,25 +37,25 @@ brig:
       nginz: https://nginz-https.example.com # change this
       teamSettings: https://teams.example.com # change this (or unset if team settings are not used)
       teamCreatorWelcome: https://teams.example.com/login # change this
-      teamMemberWelcome: https://wire.example.com/download # change this
+      teamMemberWelcome: https://society.example.com/download # change this
     optSettings:
       setCookieDomain: example.com # change this
     emailSMS:
       general:
-        emailSender: email@example.com # change this
+        emailSender: mail@example.com # change this
         smsSender: "insert-sms-sender-for-twilio" # change this if SMS support is desired
         templateBranding: # change all of these, they are used in emails
-          brand: Wire
-          brandUrl: https://wire.com
-          brandLabel: wire.com
-          brandLabelUrl: https://wire.com
-          brandLogoUrl: https://wire.com/p/img/email/logo-email-black.png
-          brandService: Wire Service Provider
-          copyright: © WIRE SWISS GmbH
-          misuse: misuse@wire.com
-          legal: https://wire.com/legal/
-          forgot: https://wire.com/forgot/
-          support: https://support.wire.com/
+          brand: Society
+          brandUrl: https://social.network
+          brandLabel: social.network
+          brandLabelUrl: https://social.network
+          brandLogoUrl: https://s3.ca-central-1.amazonaws.com/public.social.network/assets/horizontal-logo.png
+          brandService: Society Service Provider
+          copyright: © social.network
+          misuse: support@social.network
+          legal: https://social.network/legal/
+          forgot: https://social.network/forgot/
+          support: https://support.social.network/
       user:
         passwordResetUrl: https://account.example.com/reset/?key=${key}&code=${code}
         activationUrl: https://account.example.com/verify/?key=${key}&code=${code}
@@ -66,10 +66,10 @@ brig:
       host: demo-smtp # change this if you want to use your own SMTP server
       port: 25        # change this
       connType: plain # change this. Possible values: plain|ssl|tls
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
   turnStatic:
@@ -89,10 +89,10 @@ proxy:
 #  image:
 #    tag: some-tag (only override if you want a newer/different version than what is in the chart)
 #  config:
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -113,10 +113,10 @@ cargohold:
       s3Bucket: assets
       s3Endpoint: http://minio-external:9000
       s3DownloadEndpoint: https://assets.example.com
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -131,10 +131,10 @@ galley:
     settings:
       # prefix URI used when inviting users to a conversation by link
       conversationCodeURI: https://webapp.example.com/join/ # change this
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -154,10 +154,10 @@ gundeck:
       queueName: integration-gundeck-events
       sqsEndpoint: http://fake-aws-sqs:4568
       snsEndpoint: http://fake-aws-sns:4575
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -196,10 +196,10 @@ spar:
     - type: ContactSupport
       company: YourCompany
       email: email:support@example.com
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -224,7 +224,7 @@ webapp:
     FEATURE_ENABLE_SSO: "false"
     FEATURE_SHOW_LOADING_INFORMATION: "false"
     URL_ACCOUNT_BASE: "https://account.example.com"
-    #URL_MOBILE_BASE: "https://wire-pwa-staging.zinfra.io" # TODO: is this needed?
+    #URL_MOBILE_BASE: "https://society-pwa-staging.zinfra.io" # TODO: is this needed?
     URL_PRIVACY_POLICY: "https://www.example.com/terms-conditions"
     URL_SUPPORT_BASE: "https://www.example.com/support"
     URL_TEAMS_BASE: "https://teams.example.com"
@@ -288,7 +288,7 @@ account-pages:
       backendDomain: example.com
       appHost: webapp.example.com
   envVars:
-    APP_NAME: "Wire Account Management"
+    APP_NAME: "Society Account Management"
     COMPANY_NAME: "YourCompany"
     FEATURE_ENFORCE_HTTPS: "false"
     FEATURE_ENABLE_DEBUG: "false"

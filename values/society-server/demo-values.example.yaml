@@ -37,12 +37,12 @@ brig:
       nginz: https://api.example.com # change this
       teamSettings: https://teams.example.com # change this (on unset if team settings are not used)
       teamCreatorWelcome: https://teams.example.com/login # change this
-      teamMemberWelcome: https://wire.example.com/download # change this
+      teamMemberWelcome: https://society.example.com/download # change this
     optSettings:
       setCookieDomain: example.com # change this
     emailSMS:
       general:
-        emailSender: email@example.com # change this
+        emailSender: mail@example.com # change this
         smsSender: "insert-sms-sender-for-twilio" # change this if SMS support is desired
     smtp:
       host: demo-smtp # change this if you want to use your own SMTP server
@@ -60,10 +60,10 @@ proxy:
 #  image:
 #    tag: some-tag (only override if you want a newer/different version than what is in the chart)
 #  config:
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -84,10 +84,10 @@ cargohold:
       s3Bucket: dummy-bucket
       s3Endpoint: http://fake-aws-s3:9000
       s3DownloadEndpoint: https://assets.example.com
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -102,10 +102,10 @@ galley:
     settings:
       # prefix URI used when inviting users to a conversation by link
       conversationCodeURI: https://example.com/join/ # change this
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -125,10 +125,10 @@ gundeck:
       queueName: integration-gundeck-events
       sqsEndpoint: http://fake-aws-sqs:4568
       snsEndpoint: http://fake-aws-sns:4575
-#    proxy: 
+#    proxy:
 #      httpProxy: "http://proxy.example.com"
 #      httpsProxy: "https://proxy.example.com"
-#      noProxyList: 
+#      noProxyList:
 #        - "local.example.com"
 #        - "10.23.0.0/16"
 
@@ -157,7 +157,7 @@ webapp:
       backendRest: nginz-https.example.com
       backendWebsocket: nginz-ssl.example.com
       backendDomain: example.com
-      appHost: webapp.example.com
+      appHost: app.example.com
 
 team-settings:
   replicaCount: 1
@@ -168,7 +168,7 @@ team-settings:
       backendRest: nginz-https.example.com
       backendWebsocket: nginz-ssl.example.com
       backendDomain: example.com
-      appHost: webapp.example.com
+      appHost: app.example.com
 
 account-pages:
   replicaCount: 1
@@ -178,4 +178,4 @@ account-pages:
     externalUrls:
       backendRest: nginz-https.example.com
       backendDomain: example.com
-      appHost: webapp.example.com
+      appHost: app.example.com
