@@ -5,6 +5,8 @@ minio:
   secretKey: dummysecret
   persistence:
     enabled: false
+  defaultBucket:
+    name: dummy-bucket
   buckets:
     - name: dummy-bucket
       purge: true

@@ -8,8 +8,8 @@ resources:
     memory: "512Mi"
     cpu: "1"
 image:
-  repository: quay.io/wire/account
-  tag: 2124-2.0.2-df000b-v0.24.26-production
+  repository: quay.io/society/account
+  tag: latest
 service:
   https:
     externalPort: 443
