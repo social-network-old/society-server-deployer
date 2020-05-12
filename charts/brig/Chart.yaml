@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Brig (part of Society Server) - User management
+name: brig
+version: 0.94.0

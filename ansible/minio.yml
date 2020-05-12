@@ -1,0 +1,90 @@
+####################################################
+# minio
+####################################################
+#
+# minio requires at least 2 datadirs (e.g. 2 servers x 1 disk each)
+# operating docs: https://docs.minio.io/docs/minio-admin-complete-guide.html
+#
+- hosts: minio
+  any_errors_fatal: true
+  become: true
+  gather_facts: true
+  environment: "{{ proxy_env | default({}) }}"
+  vars:
+    minio_server_env_extra: "MINIO_BROWSER=off"
+    bucket_names:
+      - "dummy-bucket"
+      - "assets"
+      - "public"
+    layouts:
+      # The first minio instance on this server.
+      layout1:
+        servicename: "minio-server1"
+        minio_server_addr: ":9000"
+        minio_server_datadirs: "/var/lib/minio-server1"
+        minio_server_envfile: "/etc/default/minio-server1"
+      # The second minio instance on this server.
+      layout2:
+        servicename: "minio-server2"
+        minio_server_addr: ":9092"
+        minio_server_datadirs: "/var/lib/minio-server2"
+        minio_server_envfile: "/etc/default/minio-server2"
+  roles:
+    - role: ansible-minio
+      layout: layout1
+      tags:
+        - minio
+    - role: ansible-minio
+      layout: layout2
+      tags:
+        - minio
+  tasks:
+    - name: "check which buckets exists"
+      shell: "mc ls def"
+      environment:
+        MC_HOST_def: "http://{{ minio_access_key }}:{{ minio_secret_key }}@localhost{{ layouts.layout1.minio_server_addr }}"
+      run_once: true
+      register: check_bucket
+      tags: bucket-create
+
+    - name: create bucket
+      shell: "mc mb def/{{ item }}"
+      environment:
+        MC_HOST_def: "http://{{ minio_access_key }}:{{ minio_secret_key }}@localhost{{ layouts.layout1.minio_server_addr }}"
+      run_once: true
+      with_items: "{{ bucket_names }}"
+      when: item not in check_bucket.stdout
+      tags: bucket-create
+
+    - name: "add 'local' mc config alias with correct credentials"
+      shell: "mc config host add local http://localhost{{ layouts.layout1.minio_server_addr }} {{ minio_access_key }} {{ minio_secret_key }}"
+      tags: mc-config
+
+    - name: "make the 'public' bucket world-accessible"
+      shell: "mc policy set public local/public"
+      run_once: true
+      tags: mc-config
+
+    - name: "remove unneeded config aliases added by default"
+      shell: "mc config host rm {{ item }}"
+      with_items:
+        - gcs
+        - s3
+        - play
+      tags: mc-config
+
+  # This play has to run after minio is installed and buckets are configured
+- hosts: minio
+  any_errors_fatal: true
+  become: true
+  gather_facts: true
+  tags: static-files
+  environment: "{{ proxy_env | default({}) }}"
+  roles:
+    - role: minio-static-files
+      # Override these variables!
+      # FUTUREWORK: parse them from a configuration file shared with helm
+      # (as the domain needs to be known in helm override values.yaml)
+      prefix: "{{ minio_deeplink_prefix | default('example-') }}"
+      domain: "{{ minio_deeplink_domain | default('example.com') }}"
+      deeplink_title: "{{ minio_deeplink_domain | default('example.com environment') }}"

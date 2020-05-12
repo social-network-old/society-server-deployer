@@ -1,0 +1,9 @@
+---
+# This assumes you ran "make download" to download the kubespray files
+#
+- import_playbook: roles-external/kubespray/cluster.yml
+
+- hosts: etcd
+  environment: "{{ proxy_env | default({}) }}"
+  roles:
+    - etcd-helpers

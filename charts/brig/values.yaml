@@ -1,0 +1,82 @@
+replicaCount: 3
+image:
+  repository: quay.io/wire/brig
+  tag: 2.78.0
+service:
+  externalPort: 8080
+  internalPort: 8080
+resources:
+  requests:
+    memory: "256Mi"
+    cpu: "100m"
+  limits:
+    memory: "512Mi"
+    cpu: "500m"
+config:
+  logLevel: Info
+  logFormat: JSON
+  cassandra:
+    host: aws-cassandra
+  elasticsearch:
+    host: elasticsearch-client
+    port: 9200
+    index: directory
+  aws:
+    region: "eu-west-1"
+    sesEndpoint: https://email.eu-west-1.amazonaws.com
+    sqsEndpoint: https://sqs.eu-west-1.amazonaws.com
+    dynamoDBEndpoint: https://dynamodb.eu-west-1.amazonaws.com
+  useSES: true
+  emailSMS:
+    general:
+      templateBranding:
+        brand: Society
+        brandUrl: https://social.network
+        brandLabel: social.network
+        brandLabelUrl: https://social.network
+        brandLogoUrl: https://society-assets.s3.ca-central-1.amazonaws.com/social.network+horizontal.png
+        brandService: Social Technologies LTD
+        copyright: © social.network
+        misuse: support@social.network
+        legal: https://social.network/legal/
+        forgot: https://social.network/forgot/
+        support: https://help.social.network/
+  authSettings:
+    keyIndex: 1
+    userTokenTimeout: 4838400
+    sessionTokenTimeout: 86400
+    accessTokenTimeout: 900
+    providerTokenTimeout: 900
+    legalholdUserTokenTimeout: 4838400
+    legalholdAccessTokenTimeout: 900
+  optSettings:
+    setActivationTimeout: 1209600
+    setTeamInvitationTimeout: 1814400
+    setUserMaxConnections: 1000
+    setCookieInsecure: false
+    setUserCookieRenewAge: 1209600
+    setUserCookieLimit: 32
+    setUserCookieThrottle:
+      stdDev: 3000
+      retryAfter: 86400
+    setRichInfoLimit: 5000
+    setDefaultLocale: en
+    setMaxTeamSize: 500
+    setMaxConvSize: 500
+    setEmailVisibility: visible_to_self
+    setPropertyMaxKeyLen: 1024
+    setPropertyMaxValueLen: 524288
+    setDeleteThrottleMillis: 100
+    # Allow search within same team only. Default: false
+    # setSearchSameTeamOnly: false|true
+    # Set max number of user clients. Default: 7
+    # setUserMaxPermClients: <int>
+  smtp:
+    passwordFile: /etc/wire/brig/secrets/smtp-password.txt
+  proxy: {}
+turnStatic:
+  v1:
+  - turn:localhost:3478
+  v2:
+  - turn:localhost:3478
+  - turn:localhost:3478?transport=tcp

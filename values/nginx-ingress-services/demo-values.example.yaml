@@ -1,0 +1,16 @@
+teamSettings:
+  enabled: false
+accountPages:
+  enabled: false
+tls:
+  enabled: true
+
+# NOTE: These values must be adjusted on a per installation basis
+config:
+  dns:
+    https: nginz-https.example.com
+    ssl: nginz-ssl.example.com
+    webapp: webapp.example.com
+    fakeS3: assets.example.com
+    teamSettings: teams.example.com
+    accountPages: account.example.com

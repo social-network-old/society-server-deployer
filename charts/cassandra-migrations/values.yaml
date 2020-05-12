@@ -1,0 +1,9 @@
+hook:
+  enabled: true
+  type: pre
+images:
+  tag: 2.78.0
+  gundeck: quay.io/wire/gundeck-schema
+  brig: quay.io/wire/brig-schema
+  galley: quay.io/wire/galley-schema
+  spar: quay.io/wire/spar-schema
