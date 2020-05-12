@@ -136,3 +136,84 @@ should give output similar to this:
 Client Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.2", GitCommit:"66049e3b21efe110454d67df4fa62b08ea79a19b", GitTreeState:"clean", BuildDate:"2019-05-16T16:14:56Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
 Server Version: version.Info{Major:"1", Minor:"14", GitVersion:"v1.14.2", GitCommit:"66049e3b21efe110454d67df4fa62b08ea79a19b", GitTreeState:"clean", BuildDate:"2019-05-16T16:14:56Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
 ```
+
+## Installing society-server (demo) components using helm
+
+The following will install a demo version of all the society-server components including the databases. This setup is not recommended in production but will get you started (everything stored in memory, data is not persisted and will be lost). Here's what will be setup:
+
+* society-server (API) - user accounts, authentication, conversations - assets handling (images, files, …) - notifications over websocket
+* society-webapp, a fully functioning web client (like https://alpha.social.network)
+* society-account-pages, user account management (a few pages relating to e.g. password reset)
+
+Push notifications, audio/video calling servers, and team settings will not be functional.
+
+### How to start installing charts from society
+
+Enable the society charts helm repository:
+
+```
+helm repo add society https://s3-ca-central-1.amazonaws.com/public.social.network/charts
+```
+
+(You can see available helm charts by running helm search society/. To see new versions as time passes, you may need to run helm repo update)
+
+Great! Now you can start installing.
+
+### Watching changes as they happen
+
+Open a terminal and run
+
+```
+kubectl get pods -w
+```
+
+This will block your terminal and show some things happening as you proceed through this guide. Keep this terminal open and open a second terminal.
+
+### How to install in-memory databases and external components
+
+In your second terminal, first install databases:
+
+```
+helm upgrade --install databases-ephemeral society/databases-ephemeral --wait
+```
+
+You should see some pods being created in your first terminal as the above command completes.
+
+You can do the following two steps (mock aws services and demo smtp server) in parallel with the above in two more terminals, or sequentially after database-ephemeral installation has succeeded.
+
+```
+helm upgrade --install fake-aws society/fake-aws --wait
+helm upgrade --install smtp society/demo-smtp --wait
+```
+
+### How to install society-server itself
+
+Change back to the `society-server-deployer` directory. Copy example demo values and secrets:
+
+```
+mkdir -p society-server && cd society-server
+cp ../values/society-server/demo-secrets.example.yaml secrets.yaml
+cp ../values/society-server/demo-values.example.yaml values.yaml
+```
+Open values.yaml and replace example.com and other domains and subdomains with domains of your choosing. Look for the # change this comments. You can try using sed -i 's/example.com/<your-domain>/g' values.yaml.
+
+Generate some secrets (if you are using the docker image from Installing kubernetes for a demo installation (on a single virtual machine), you should open a shell on the host system for this):
+
+```
+openssl rand -base64 64 | env LC_CTYPE=C tr -dc a-zA-Z0-9 | head -c 42 > restund.txt
+docker run --rm quay.io/society/alpine-intermediate /dist/zauth -m gen-keypair -i 1 > zauth.txt
+```
+
+Add the generated secret from restund.txt to secrets.yaml under brig.secrets.turn.secret
+
+add both the public and private parts from zauth.txt to secrets.yaml under brig.secrets.zAuth
+
+Add the public key from zauth.txt also to secrets.yaml under nginz.secrets.zAuth.publicKeys
+
+Great, now try the installation:
+
+```
+helm upgrade --install society-server society/society-server -f values.yaml -f secrets.yaml --wait
+```
+
+### How to direct traffic to your cluster

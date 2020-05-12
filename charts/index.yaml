@@ -1,0 +1,449 @@
+apiVersion: v1
+entries:
+  account-pages:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.079608-04:00"
+    description: A Helm chart for the Society account pages in Kubernetes
+    digest: 9b302a3d8facb3b63dc9c7b368d4b790c3d40cbe304b94ac13735c7fe7e825fe
+    name: account-pages
+    urls:
+    - account-pages-0.94.0.tgz
+    version: 0.94.0
+  aws-ingress:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.080143-04:00"
+    description: A Helm chart for ingresses (AWS specific) on Kubernetes
+    digest: 03d628fe2002d3ef63e53312ab02fc7b7d5f4dc4542b6b7026cff0e0573d8775
+    name: aws-ingress
+    urls:
+    - aws-ingress-0.94.0.tgz
+    version: 0.94.0
+  aws-storage:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.080341-04:00"
+    description: AWS storage classes
+    digest: 73455895b64f60f00e9081f5fa6eaae822873fd76cecec35b1f5784fa21a999e
+    name: aws-storage
+    urls:
+    - aws-storage-0.94.0.tgz
+    version: 0.94.0
+  backoffice:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.080734-04:00"
+    description: Backoffice tool
+    digest: 476454fff0f9b41127be6cecd6c450db20cd7d4afb827fba1d87e1da96b40db1
+    name: backoffice
+    urls:
+    - backoffice-0.94.0.tgz
+    version: 0.94.0
+  brig:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.082523-04:00"
+    description: Brig (part of Society Server) - User management
+    digest: 821a3a28043eeeead37e03e3ffe7376272ab1bc1b0b574f9ff865994a714559e
+    name: brig
+    urls:
+    - brig-0.94.0.tgz
+    version: 0.94.0
+  calling-test:
+  - apiVersion: v2
+    appVersion: 1.0.14
+    created: "2020-05-12T16:19:12.082891-04:00"
+    description: Network testing tool for audio/video/signalling. See https://github.com/social-network/avs-nwtesttool
+      for more details.
+    digest: c132fc8d61ae5fb1f696867b479201420030a57c29426f9bfa70743988b945c8
+    name: calling-test
+    type: application
+    urls:
+    - calling-test-0.94.0.tgz
+    version: 0.94.0
+  cannon:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.083541-04:00"
+    description: A Helm chart for cannon in Kubernetes
+    digest: 5f2c5ced27022ca718c11bdd0ffdf9d08e490e381f382c06783f71c186efeb34
+    name: cannon
+    urls:
+    - cannon-0.94.0.tgz
+    version: 0.94.0
+  cargohold:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.083884-04:00"
+    description: Cargohold (part of Society Server) - Asset storage
+    digest: 209eff8e09fbb809d404118ffa8de3515fc1d22e8a1bb5c0735390822d614e3f
+    name: cargohold
+    urls:
+    - cargohold-0.94.0.tgz
+    version: 0.94.0
+  cassandra-ephemeral:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.085367-04:00"
+    dependencies:
+    - alias: cassandra-ephemeral
+      name: cassandra
+      repository: https://kubernetes-charts-incubator.storage.googleapis.com
+      version: 0.13.3
+    description: Wrapper chart for incubator/cassandra with custom settings to be
+      used as non-persistent cassandra during tests
+    digest: b34d8be4564af5e8d98984e189e5bd5d7cbc80d66bf1851519e5d3325157d4b2
+    name: cassandra-ephemeral
+    urls:
+    - cassandra-ephemeral-0.94.0.tgz
+    version: 0.94.0
+  cassandra-external:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.085583-04:00"
+    description: Refer to cassandra IPs located outside kubernetes by specifying IPs
+      manually
+    digest: 7d0e11df4c92110d88ef7251e48c707de3dc3238882c9787b841a29f5648c002
+    name: cassandra-external
+    urls:
+    - cassandra-external-0.94.0.tgz
+    version: 0.94.0
+  cassandra-migrations:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.085847-04:00"
+    description: cassandra database schema migration for gundeck,brig,galley,spar
+    digest: cf4041a5c3fde6ab0c686b3f4ea0076e214044dd871420b6dabcdf184ec67150
+    name: cassandra-migrations
+    urls:
+    - cassandra-migrations-0.94.0.tgz
+    version: 0.94.0
+  demo-smtp:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2020-05-12T16:19:12.086154-04:00"
+    description: A demo helm chart to send emails. Not production ready.
+    digest: 84a69431c0986d94ac807d8aa13a77fa70b6db8f8e625913ec39dddf620481e0
+    name: demo-smtp
+    urls:
+    - demo-smtp-0.94.0.tgz
+    version: 0.94.0
+  elasticsearch-ephemeral:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.086427-04:00"
+    description: Dummy ephemeral elasticsearch
+    digest: e206b65526762f1a91401e2285093335b20fd513ed101e97ce8eccacf37e7d9f
+    name: elasticsearch-ephemeral
+    urls:
+    - elasticsearch-ephemeral-0.94.0.tgz
+    version: 0.94.0
+  elasticsearch-external:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.086653-04:00"
+    description: Refer to elasticsearch IPs located outside kubernetes by specifying
+      IPs manually
+    digest: f66734bc4089198478751e597b241dd33ff85fe02636f3e8ae9f19608efc6ca4
+    name: elasticsearch-external
+    urls:
+    - elasticsearch-external-0.94.0.tgz
+    version: 0.94.0
+  elasticsearch-index:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.086914-04:00"
+    description: Elasticsearch index for brig
+    digest: 5e7f3b244d4d3213cce3f8f8ef25506bf79c7a8954303d58216f99e9dd996307
+    name: elasticsearch-index
+    urls:
+    - elasticsearch-index-0.94.0.tgz
+    version: 0.94.0
+  fake-aws:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.088708-04:00"
+    dependencies:
+    - condition: fake-aws-sns.enabled,global.fake-aws-sns.enabled
+      name: fake-aws-sns
+      repository: file://../fake-aws-sns
+      tags:
+      - fake-aws-sns
+      - aws-mocks
+      - demo
+      version: 0.94.0
+    - condition: fake-aws-sqs.enabled,global.fake-aws-sqs.enabled
+      name: fake-aws-sqs
+      repository: file://../fake-aws-sqs
+      tags:
+      - fake-aws-sqs
+      - aws-mocks
+      - demo
+      version: 0.94.0
+    - condition: fake-aws-s3.enabled,global.fake-aws-s3.enabled
+      name: fake-aws-s3
+      repository: file://../fake-aws-s3
+      tags:
+      - fake-aws-s3
+      - aws-mocks
+      - demo
+      version: 0.94.0
+    - condition: fake-aws-dynamodb.enabled,global.fake-aws-dynamodb.enabled
+      name: fake-aws-dynamodb
+      repository: file://../fake-aws-dynamodb
+      tags:
+      - fake-aws-dynamodb
+      - aws-mocks
+      - demo
+      version: 0.94.0
+    - condition: fake-aws-ses.enabled,global.fake-aws-ses.enabled
+      name: fake-aws-ses
+      repository: file://../fake-aws-ses
+      tags:
+      - fake-aws-ses
+      - aws-mocks
+      - demo
+      version: 0.94.0
+    description: A Helm chart for fake-aws services (replacing real AWS services for
+      demo and test)
+    digest: dddbf860ca57e5dad0a97f45e09ef491721afc3b288794d16d6e4ae3e900f061
+    name: fake-aws
+    urls:
+    - fake-aws-0.94.0.tgz
+    version: 0.94.0
+  fake-aws-dynamodb:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.088997-04:00"
+    description: Dummy ephemeral DynamoDB service
+    digest: d840efda41fde1cb28b0cbc986adbfe33c90a7ddd2876610f69fd0877d31eb25
+    name: fake-aws-dynamodb
+    urls:
+    - fake-aws-dynamodb-0.94.0.tgz
+    version: 0.94.0
+  fake-aws-s3:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.090447-04:00"
+    dependencies:
+    - name: minio
+      repository: https://kubernetes-charts.storage.googleapis.com
+      version: 2.5.15
+    description: Wrapper chart for stable/minio
+    digest: 5ab075863ba0cc7c4b25b5743be06d2060838fc09bab88ecdfd0970a8dada902
+    name: fake-aws-s3
+    urls:
+    - fake-aws-s3-0.94.0.tgz
+    version: 0.94.0
+  fake-aws-ses:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.090712-04:00"
+    description: Dummy ephemeral SES service (based on localstack)
+    digest: 6e70ed63545917bf25363cbf3f9a176504f9e7132bd962784c706f832c5e02d2
+    name: fake-aws-ses
+    urls:
+    - fake-aws-ses-0.94.0.tgz
+    version: 0.94.0
+  fake-aws-sns:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.091012-04:00"
+    description: Dummy ephemeral SNS service (based on localstack)
+    digest: 1b73d7418cdb728b37843113c40bb9d8881b53558611d659d846cabc958b5d5a
+    name: fake-aws-sns
+    urls:
+    - fake-aws-sns-0.94.0.tgz
+    version: 0.94.0
+  fake-aws-sqs:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.091276-04:00"
+    description: Dummy ephemeral SQS service
+    digest: d4239648f2967200df94a42578ce5e2e9146eee895263ca165f48e6db2b2f595
+    name: fake-aws-sqs
+    urls:
+    - fake-aws-sqs-0.94.0.tgz
+    version: 0.94.0
+  galley:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.091713-04:00"
+    description: Galley (part of Society Server) - Conversations
+    digest: beedfefd848cfb5b54a8fabda3376eec31cdb0d10e9c9c1bacda00abf8777c69
+    name: galley
+    urls:
+    - galley-0.94.0.tgz
+    version: 0.94.0
+  gundeck:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.092075-04:00"
+    description: Gundeck (part of Society Server) - Push Notification Hub Service
+    digest: fb32ce489e6b6f40b83e98c8b690229fe9d1b429ef1f652f4c2b93e57dd7b610
+    name: gundeck
+    urls:
+    - gundeck-0.94.0.tgz
+    version: 0.94.0
+  minio-external:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.092265-04:00"
+    description: Refer to minio IPs located outside kubernetes by specifying IPs manually
+    digest: 12175fc39e4e35f11c1190b4ab1119f7ea80fd65553dee1acd77a9c8536e8b59
+    name: minio-external
+    urls:
+    - minio-external-0.94.0.tgz
+    version: 0.94.0
+  nginx-ingress-controller:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.095367-04:00"
+    dependencies:
+    - name: nginx-ingress
+      repository: https://kubernetes-charts.storage.googleapis.com
+      version: 1.33.3
+    description: A Helm chart for an ingress controller (using nginx) on Kubernetes
+    digest: 389f3e5af6f0ab331b609a710bcb4052941cc8be05d7448c3dadf9e3d492fb6a
+    name: nginx-ingress-controller
+    urls:
+    - nginx-ingress-controller-0.94.0.tgz
+    version: 0.94.0
+  nginx-ingress-services:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.095732-04:00"
+    description: A Helm chart for ingresses and services on Kubernetes
+    digest: 31ef0146b0a6c0c5417b71cc0d9f764bbb7768d5259cc152bafa4458e8c99797
+    name: nginx-ingress-services
+    urls:
+    - nginx-ingress-services-0.94.0.tgz
+    version: 0.94.0
+  nginz:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.097173-04:00"
+    description: A Helm chart for nginz in Kubernetes
+    digest: e2714bf24dd80640be834081f166c579fa86abedd78a1afb815195b0ffd37496
+    name: nginz
+    urls:
+    - nginz-0.94.0.tgz
+    version: 0.94.0
+  proxy:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.097439-04:00"
+    description: Proxy (part of Society Server) - 3rd party proxy service
+    digest: a983826999175693d2f834837b91111e4ed8bb9ea936276b3887fe2fbe673406
+    name: proxy
+    urls:
+    - proxy-0.94.0.tgz
+    version: 0.94.0
+  reaper:
+  - apiVersion: v1
+    appVersion: 0.1.0
+    created: "2020-05-12T16:19:12.097638-04:00"
+    description: A helm charts to restart cannons if redis-ephemeal has died
+    digest: 6a9776184524839fc2ee6f84166e51cf9ae13f8bdddf490fcfbc733e566f662d
+    name: reaper
+    urls:
+    - reaper-0.94.0.tgz
+    version: 0.94.0
+  society-server:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.102046-04:00"
+    dependencies:
+    - name: cassandra-migrations
+      repository: file://../cassandra-migrations
+      tags:
+      - cassandra-migrations
+      version: 0.94.0
+    - name: elasticsearch-index
+      repository: file://../elasticsearch-index
+      tags:
+      - elasticsearch-index
+      version: 0.94.0
+    - name: cannon
+      repository: file://../cannon
+      tags:
+      - cannon
+      - haskellServices
+      - services
+      version: 0.94.0
+    - name: proxy
+      repository: file://../proxy
+      tags:
+      - proxy
+      - haskellServices
+      - services
+      version: 0.94.0
+    - name: cargohold
+      repository: file://../cargohold
+      tags:
+      - cargohold
+      - haskellServices
+      - services
+      version: 0.94.0
+    - name: gundeck
+      repository: file://../gundeck
+      tags:
+      - gundeck
+      - haskellServices
+      - services
+      version: 0.94.0
+    - name: spar
+      repository: file://../spar
+      tags:
+      - spar
+      - haskellServices
+      - services
+      version: 0.94.0
+    - name: galley
+      repository: file://../galley
+      tags:
+      - galley
+      - haskellServices
+      - services
+      version: 0.94.0
+    - name: brig
+      repository: file://../brig
+      tags:
+      - brig
+      - haskellServices
+      - services
+      version: 0.94.0
+    - name: nginz
+      repository: file://../nginz
+      tags:
+      - nginz
+      - services
+      version: 0.94.0
+    - name: webapp
+      repository: file://../webapp
+      tags:
+      - web
+      - webapp
+      version: 0.94.0
+    - name: team-settings
+      repository: file://../team-settings
+      tags:
+      - web
+      - team-settings
+      - private
+      version: 0.94.0
+    - name: account-pages
+      repository: file://../account-pages
+      tags:
+      - web
+      - account-pages
+      - private
+      version: 0.94.0
+    description: A Helm chart for society-server https://github.com/social-network/society-server
+    digest: 0a3cd759596c165b5763a4a00e908426e211f7ad155b3648ff6366c00589d0bc
+    name: society-server
+    urls:
+    - society-server-0.94.0.tgz
+    version: 0.94.0
+  spar:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.10234-04:00"
+    description: Spar (part of Society Server) - SSO Service
+    digest: 4918789e7157c321d1c151eaa92a8f1d11b05e2144b68e6c45a0436c8d88cf38
+    name: spar
+    urls:
+    - spar-0.94.0.tgz
+    version: 0.94.0
+  team-settings:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.103163-04:00"
+    description: A Helm chart for the Society team-settings in Kubernetes
+    digest: 0b4ba61bea64014bc70613da9b3d8662dfa568c19d1222c2cf3a4caffefb783f
+    name: team-settings
+    urls:
+    - team-settings-0.94.0.tgz
+    version: 0.94.0
+  webapp:
+  - apiVersion: v1
+    created: "2020-05-12T16:19:12.103599-04:00"
+    description: A Helm chart for the Society webapp in Kubernetes
+    digest: ace572cb439253e09e2a27100be406f6a55c25107676acf1dccaff906a0c582d
+    name: webapp
+    urls:
+    - webapp-0.94.0.tgz
+    version: 0.94.0
+generated: "2020-05-12T16:19:12.076623-04:00"
