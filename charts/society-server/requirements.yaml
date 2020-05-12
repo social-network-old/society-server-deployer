@@ -1,6 +1,6 @@
 dependencies:
 ########################
-## wire-servers/database cassandra-migrations
+## society-server/database cassandra-migrations
 ########################
 - name: cassandra-migrations
   version: "0.94.0"
@@ -13,7 +13,7 @@ dependencies:
   tags:
     - elasticsearch-index
 ########################
-## wire-servers/services
+## society-server/services
 ########################
 - name: cannon
   version: "0.94.0"

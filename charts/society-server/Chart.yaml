@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for society-server https://github.com/social-network/society-server
+name: society-server
+version: 0.94.0

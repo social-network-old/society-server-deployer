@@ -1,6 +1,6 @@
 apiVersion: v2
 name: calling-test
-description: Network testing tool for audio/video/signalling. See https://github.com/wireapp/avs-nwtesttool for more details.
+description: Network testing tool for audio/video/signalling. See https://github.com/social-network/avs-nwtesttool for more details.
 
 # A chart can be either an 'application' or a 'library' chart.
 #

@@ -1,10 +1,10 @@
 prometheus-operator:
   prometheus:
     additionalServiceMonitors:
-      - name: wire-services
+      - name: society-services
         # We copy these labels from the pod onto the collected metrics from that pod
         targetLabels:
-          - wireService
+          - societyServer
         endpoints:
           - path: '/i/metrics'
             port: http
@@ -15,13 +15,13 @@ prometheus-operator:
               - sourceLabels: [service]
                 targetLabel: role
         # This monitors _all_ namespaces and selects all
-        # pods that with a wireServices selector
+        # pods that with a societyServers selector
         namespaceSelector:
           any: true
         selector:
           matchExpressions:
-            # select any pod with a 'wireService' label
-            - key: wireService
+            # select any pod with a 'societyServer' label
+            - key: societyServer
               operator: Exists
 
   prometheusOperator:
