@@ -1,7 +1,6 @@
 # Development Server Deployment
 
 ## Installing kubernetes for a development installation (on a single virtual machine)
-============================================================================
 
 You need python2, some python dependencies, a specific version of ansible, and gnu make. Then, you need to download specific ansible roles using ansible-galaxy, and binaries kubectl and helm.
 
@@ -83,7 +82,6 @@ docker exec -it `docker ps -q --filter="ancestor=quay.io/society/networkless-adm
 ```
 
 ## How to set up your hosts.ini file
--------------------------------------
 
 Assuming a single virtual machine with a public IP address running Ubuntu 16.04 or 18.04, with at least 4 CPU cores and at least 8 GB of memory.
 
@@ -109,7 +107,6 @@ cat ~/.ssh/ansible.pub >> ~/.ssh/authorized_keys
 And finally hosts.ini and replace `X.X.X.X` with the IP address of your virtual machine that you use for ssh access you can try using ``sed -i 's/X.X.X.X/1.2.3.4/g' hosts.ini``. Also set ansible_ssh_private_key_file to `/root/.ssh/ansible`.
 
 ## How to install kubernetes
---------------------------
 
 From `server-deploy/ansible`:
 

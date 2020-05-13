@@ -18,18 +18,43 @@ service:
 
 ## The following has to be provided to deploy this chart
 
-#config:
-#  externalUrls:
-#   backendRest: nginz-https.example.com
-#   backendWebsocket: nginz-ssl.example.com
-#   backendDomain: example.com
-#   appHost: webapp.example.com
+config:
+  externalUrls:
+   backendRest: nginz-https-dev.social.network
+   backendWebsocket: nginz-ssl-dev.social.network
+   backendDomain: social.network
+   appHost: webapp-dev.social.network
 
 # Some relevant environment options, have a look at
 # https://github.com/wireapp/wire-webapp/wiki/Self-hosting
 # NOTE: Without an empty dictionary, you will see warnings
 #       when overriding envVars
 envVars: {
+  APP_BASE: "https://webapp-dev.social.network",
+  APP_NAME: "Society",
+  COMPANY_NAME: "Social Network",
+  BACKEND_NAME: "Society"
+  BACKEND_REST: "https://nginz-https-dev.social.network"
+  BACKEND_WS: "wss://nginz-ssl-dev.social.network"
+  BRAND_NAME: "Society"
+  URL_ACCOUNT_BASE: "https://account-dev.social.network"
+  URL_MOBILE_BASE: "https://pwa-dev.social.network"
+  URL_PRIVACY_POLICY: "https://society-dev.social.network/security"
+  URL_TEAMS_BASE: "https://teams-dev.social.network"
+  URL_TERMS_OF_USE_PERSONAL: "https://society-dev.social.network/legal/terms/personal"
+  URL_TERMS_OF_USE_TEAMS: "https://society-dev.social.network/legal/terms/teams"
+  URL_WEBSITE_BASE: "https://society-dev.social.network",
+  URL_SUPPORT_INDEX: "https://help.social.network/",
+  URL_SUPPORT_BUG_REPORT: "https://help.social.network/new?ticket_form_id: 101615",
+  URL_SUPPORT_CALLING: "https://help.social.network/hc/articles/202969412",
+  URL_SUPPORT_CAMERA_ACCESS_DENIED: "https://help.social.network/hc/articles/202935412",
+  URL_SUPPORT_CONTACT: "https://help.social.network/hc/requests/new",
+  URL_SUPPORT_DEVICE_ACCESS_DENIED: "https://help.social.network/hc/articles/213512545",
+  URL_SUPPORT_DEVICE_NOT_FOUND: "https://help.social.network/hc/articles/202970662",
+  URL_SUPPORT_EMAIL_EXISTS: "https://help.social.network/hc/articles/115004082129",
+  URL_SUPPORT_HISTORY: "https://help.social.network/hc/articles/207834645",
+  URL_SUPPORT_MICROPHONE_ACCESS_DENIED: "https://help.social.network/hc/articles/202590081",
+  URL_SUPPORT_SCREEN_ACCESS_DENIED: "https://help.social.network/hc/articles/202935412"
   CSP_EXTRA_CONNECT_SRC: "https://*.social.network, wss://*.social.network",
   CSP_EXTRA_IMG_SRC: "https://*.social.network",
   CSP_EXTRA_SCRIPT_SRC: "https://*.social.network",

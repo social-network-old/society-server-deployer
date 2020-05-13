@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   account-pages:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.552356-04:00"
+    created: "2020-05-12T22:49:27.177768-04:00"
     description: A Helm chart for the Society account pages in Kubernetes
     digest: 9b302a3d8facb3b63dc9c7b368d4b790c3d40cbe304b94ac13735c7fe7e825fe
     name: account-pages
@@ -11,7 +11,7 @@ entries:
     version: 0.94.0
   aws-ingress:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.553054-04:00"
+    created: "2020-05-12T22:49:27.178264-04:00"
     description: A Helm chart for ingresses (AWS specific) on Kubernetes
     digest: 03d628fe2002d3ef63e53312ab02fc7b7d5f4dc4542b6b7026cff0e0573d8775
     name: aws-ingress
@@ -20,7 +20,7 @@ entries:
     version: 0.94.0
   aws-storage:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.553845-04:00"
+    created: "2020-05-12T22:49:27.178433-04:00"
     description: AWS storage classes
     digest: 73455895b64f60f00e9081f5fa6eaae822873fd76cecec35b1f5784fa21a999e
     name: aws-storage
@@ -29,7 +29,7 @@ entries:
     version: 0.94.0
   backoffice:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.554469-04:00"
+    created: "2020-05-12T22:49:27.1788-04:00"
     description: Backoffice tool
     digest: 476454fff0f9b41127be6cecd6c450db20cd7d4afb827fba1d87e1da96b40db1
     name: backoffice
@@ -38,7 +38,7 @@ entries:
     version: 0.94.0
   brig:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.555399-04:00"
+    created: "2020-05-12T22:49:27.179532-04:00"
     description: Brig (part of Society Server) - User management
     digest: 821a3a28043eeeead37e03e3ffe7376272ab1bc1b0b574f9ff865994a714559e
     name: brig
@@ -48,7 +48,7 @@ entries:
   calling-test:
   - apiVersion: v2
     appVersion: 1.0.14
-    created: "2020-05-12T21:22:54.555768-04:00"
+    created: "2020-05-12T22:49:27.179862-04:00"
     description: Network testing tool for audio/video/signalling. See https://github.com/social-network/avs-nwtesttool
       for more details.
     digest: c132fc8d61ae5fb1f696867b479201420030a57c29426f9bfa70743988b945c8
@@ -59,7 +59,7 @@ entries:
     version: 0.94.0
   cannon:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.556115-04:00"
+    created: "2020-05-12T22:49:27.180181-04:00"
     description: A Helm chart for cannon in Kubernetes
     digest: 5f2c5ced27022ca718c11bdd0ffdf9d08e490e381f382c06783f71c186efeb34
     name: cannon
@@ -68,7 +68,7 @@ entries:
     version: 0.94.0
   cargohold:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.556497-04:00"
+    created: "2020-05-12T22:49:27.180527-04:00"
     description: Cargohold (part of Society Server) - Asset storage
     digest: 209eff8e09fbb809d404118ffa8de3515fc1d22e8a1bb5c0735390822d614e3f
     name: cargohold
@@ -77,7 +77,7 @@ entries:
     version: 0.94.0
   cassandra-ephemeral:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.558095-04:00"
+    created: "2020-05-12T22:49:27.182007-04:00"
     dependencies:
     - alias: cassandra-ephemeral
       name: cassandra
@@ -92,7 +92,7 @@ entries:
     version: 0.94.0
   cassandra-external:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.558374-04:00"
+    created: "2020-05-12T22:49:27.182212-04:00"
     description: Refer to cassandra IPs located outside kubernetes by specifying IPs
       manually
     digest: 7d0e11df4c92110d88ef7251e48c707de3dc3238882c9787b841a29f5648c002
@@ -102,7 +102,7 @@ entries:
     version: 0.94.0
   cassandra-migrations:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.55867-04:00"
+    created: "2020-05-12T22:49:27.182478-04:00"
     description: cassandra database schema migration for gundeck,brig,galley,spar
     digest: cf4041a5c3fde6ab0c686b3f4ea0076e214044dd871420b6dabcdf184ec67150
     name: cassandra-migrations
@@ -111,7 +111,7 @@ entries:
     version: 0.94.0
   databases-ephemeral:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.56139-04:00"
+    created: "2020-05-12T22:49:27.185449-04:00"
     dependencies:
     - name: redis-ephemeral
       repository: file://../redis-ephemeral
@@ -144,7 +144,7 @@ entries:
   demo-smtp:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2020-05-12T21:22:54.561731-04:00"
+    created: "2020-05-12T22:49:27.185744-04:00"
     description: A demo helm chart to send emails. Not production ready.
     digest: 84a69431c0986d94ac807d8aa13a77fa70b6db8f8e625913ec39dddf620481e0
     name: demo-smtp
@@ -153,7 +153,7 @@ entries:
     version: 0.94.0
   elasticsearch-curator:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.563382-04:00"
+    created: "2020-05-12T22:49:27.186561-04:00"
     dependencies:
     - name: elasticsearch-curator
       repository: https://kubernetes-charts.storage.googleapis.com
@@ -166,7 +166,7 @@ entries:
     version: 0.94.0
   elasticsearch-ephemeral:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.563679-04:00"
+    created: "2020-05-12T22:49:27.186826-04:00"
     description: Dummy ephemeral elasticsearch
     digest: e206b65526762f1a91401e2285093335b20fd513ed101e97ce8eccacf37e7d9f
     name: elasticsearch-ephemeral
@@ -175,7 +175,7 @@ entries:
     version: 0.94.0
   elasticsearch-external:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.563892-04:00"
+    created: "2020-05-12T22:49:27.187001-04:00"
     description: Refer to elasticsearch IPs located outside kubernetes by specifying
       IPs manually
     digest: f66734bc4089198478751e597b241dd33ff85fe02636f3e8ae9f19608efc6ca4
@@ -185,7 +185,7 @@ entries:
     version: 0.94.0
   elasticsearch-index:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.56416-04:00"
+    created: "2020-05-12T22:49:27.187226-04:00"
     description: Elasticsearch index for brig
     digest: 5e7f3b244d4d3213cce3f8f8ef25506bf79c7a8954303d58216f99e9dd996307
     name: elasticsearch-index
@@ -194,7 +194,7 @@ entries:
     version: 0.94.0
   fake-aws:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.565493-04:00"
+    created: "2020-05-12T22:49:27.188404-04:00"
     dependencies:
     - condition: fake-aws-sns.enabled,global.fake-aws-sns.enabled
       name: fake-aws-sns
@@ -238,14 +238,14 @@ entries:
       version: 0.94.0
     description: A Helm chart for fake-aws services (replacing real AWS services for
       demo and test)
-    digest: dddbf860ca57e5dad0a97f45e09ef491721afc3b288794d16d6e4ae3e900f061
+    digest: b733e75e8ab2cc80babd6d21d041bdb338eab9c4aa9827765a686c882909f3b0
     name: fake-aws
     urls:
     - fake-aws-0.94.0.tgz
     version: 0.94.0
   fake-aws-dynamodb:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.565842-04:00"
+    created: "2020-05-12T22:49:27.18869-04:00"
     description: Dummy ephemeral DynamoDB service
     digest: d840efda41fde1cb28b0cbc986adbfe33c90a7ddd2876610f69fd0877d31eb25
     name: fake-aws-dynamodb
@@ -254,20 +254,20 @@ entries:
     version: 0.94.0
   fake-aws-s3:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.567451-04:00"
+    created: "2020-05-12T22:49:27.190123-04:00"
     dependencies:
     - name: minio
       repository: https://kubernetes-charts.storage.googleapis.com
       version: 2.5.15
     description: Wrapper chart for stable/minio
-    digest: 82cee774f2c72ffb93171341f1a177bc9d8f24e26ede32c0837e25e21631e33a
+    digest: 7a63475e1e998279b95386495aa55e296e4743ac05d23872869ea51ad23fd82e
     name: fake-aws-s3
     urls:
     - fake-aws-s3-0.94.0.tgz
     version: 0.94.0
   fake-aws-ses:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.567753-04:00"
+    created: "2020-05-12T22:49:27.190418-04:00"
     description: Dummy ephemeral SES service (based on localstack)
     digest: 6e70ed63545917bf25363cbf3f9a176504f9e7132bd962784c706f832c5e02d2
     name: fake-aws-ses
@@ -276,7 +276,7 @@ entries:
     version: 0.94.0
   fake-aws-sns:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.568048-04:00"
+    created: "2020-05-12T22:49:27.190703-04:00"
     description: Dummy ephemeral SNS service (based on localstack)
     digest: 1b73d7418cdb728b37843113c40bb9d8881b53558611d659d846cabc958b5d5a
     name: fake-aws-sns
@@ -285,7 +285,7 @@ entries:
     version: 0.94.0
   fake-aws-sqs:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.568326-04:00"
+    created: "2020-05-12T22:49:27.19096-04:00"
     description: Dummy ephemeral SQS service
     digest: d4239648f2967200df94a42578ce5e2e9146eee895263ca165f48e6db2b2f595
     name: fake-aws-sqs
@@ -294,7 +294,7 @@ entries:
     version: 0.94.0
   fluent-bit:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.569826-04:00"
+    created: "2020-05-12T22:49:27.192907-04:00"
     dependencies:
     - name: fluent-bit
       repository: https://kubernetes-charts.storage.googleapis.com
@@ -307,7 +307,7 @@ entries:
     version: 0.94.0
   galley:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.570476-04:00"
+    created: "2020-05-12T22:49:27.193351-04:00"
     description: Galley (part of Society Server) - Conversations
     digest: beedfefd848cfb5b54a8fabda3376eec31cdb0d10e9c9c1bacda00abf8777c69
     name: galley
@@ -316,7 +316,7 @@ entries:
     version: 0.94.0
   gundeck:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.571217-04:00"
+    created: "2020-05-12T22:49:27.193704-04:00"
     description: Gundeck (part of Society Server) - Push Notification Hub Service
     digest: fb32ce489e6b6f40b83e98c8b690229fe9d1b429ef1f652f4c2b93e57dd7b610
     name: gundeck
@@ -325,7 +325,7 @@ entries:
     version: 0.94.0
   kibana:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.572495-04:00"
+    created: "2020-05-12T22:49:27.194863-04:00"
     dependencies:
     - name: kibana
       repository: https://kubernetes-charts.storage.googleapis.com
@@ -338,7 +338,7 @@ entries:
     version: 0.94.0
   metallb:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.573203-04:00"
+    created: "2020-05-12T22:49:27.195508-04:00"
     dependencies:
     - name: metallb
       repository: https://kubernetes-charts.storage.googleapis.com
@@ -351,7 +351,7 @@ entries:
     version: 0.94.0
   minio-external:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.573425-04:00"
+    created: "2020-05-12T22:49:27.195687-04:00"
     description: Refer to minio IPs located outside kubernetes by specifying IPs manually
     digest: 12175fc39e4e35f11c1190b4ab1119f7ea80fd65553dee1acd77a9c8536e8b59
     name: minio-external
@@ -360,7 +360,7 @@ entries:
     version: 0.94.0
   nginx-ingress-controller:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.575967-04:00"
+    created: "2020-05-12T22:49:27.197969-04:00"
     dependencies:
     - name: nginx-ingress
       repository: https://kubernetes-charts.storage.googleapis.com
@@ -373,7 +373,7 @@ entries:
     version: 0.94.0
   nginx-ingress-services:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.576333-04:00"
+    created: "2020-05-12T22:49:27.198311-04:00"
     description: A Helm chart for ingresses and services on Kubernetes
     digest: 31ef0146b0a6c0c5417b71cc0d9f764bbb7768d5259cc152bafa4458e8c99797
     name: nginx-ingress-services
@@ -382,7 +382,7 @@ entries:
     version: 0.94.0
   nginz:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.577845-04:00"
+    created: "2020-05-12T22:49:27.200218-04:00"
     description: A Helm chart for nginz in Kubernetes
     digest: e2714bf24dd80640be834081f166c579fa86abedd78a1afb815195b0ffd37496
     name: nginz
@@ -391,7 +391,7 @@ entries:
     version: 0.94.0
   proxy:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.578625-04:00"
+    created: "2020-05-12T22:49:27.200489-04:00"
     description: Proxy (part of Society Server) - 3rd party proxy service
     digest: a983826999175693d2f834837b91111e4ed8bb9ea936276b3887fe2fbe673406
     name: proxy
@@ -401,7 +401,7 @@ entries:
   reaper:
   - apiVersion: v1
     appVersion: 0.1.0
-    created: "2020-05-12T21:22:54.57885-04:00"
+    created: "2020-05-12T22:49:27.200686-04:00"
     description: A helm charts to restart cannons if redis-ephemeal has died
     digest: 6a9776184524839fc2ee6f84166e51cf9ae13f8bdddf490fcfbc733e566f662d
     name: reaper
@@ -410,7 +410,7 @@ entries:
     version: 0.94.0
   redis-ephemeral:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.580329-04:00"
+    created: "2020-05-12T22:49:27.201339-04:00"
     dependencies:
     - alias: redis-ephemeral
       name: redis
@@ -424,7 +424,7 @@ entries:
     version: 0.94.0
   society-server:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.585162-04:00"
+    created: "2020-05-12T22:49:27.205405-04:00"
     dependencies:
     - name: cassandra-migrations
       repository: file://../cassandra-migrations
@@ -519,7 +519,7 @@ entries:
     version: 0.94.0
   spar:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.585497-04:00"
+    created: "2020-05-12T22:49:27.205702-04:00"
     description: Spar (part of Society Server) - SSO Service
     digest: 4918789e7157c321d1c151eaa92a8f1d11b05e2144b68e6c45a0436c8d88cf38
     name: spar
@@ -528,7 +528,7 @@ entries:
     version: 0.94.0
   team-settings:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.585834-04:00"
+    created: "2020-05-12T22:49:27.206032-04:00"
     description: A Helm chart for the Society team-settings in Kubernetes
     digest: 0b4ba61bea64014bc70613da9b3d8662dfa568c19d1222c2cf3a4caffefb783f
     name: team-settings
@@ -537,11 +537,11 @@ entries:
     version: 0.94.0
   webapp:
   - apiVersion: v1
-    created: "2020-05-12T21:22:54.586764-04:00"
+    created: "2020-05-12T22:49:27.206357-04:00"
     description: A Helm chart for the Society webapp in Kubernetes
     digest: ace572cb439253e09e2a27100be406f6a55c25107676acf1dccaff906a0c582d
     name: webapp
     urls:
     - webapp-0.94.0.tgz
     version: 0.94.0
-generated: "2020-05-12T21:22:54.551626-04:00"
+generated: "2020-05-12T22:49:27.17652-04:00"

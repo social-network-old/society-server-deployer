@@ -2,10 +2,10 @@
 
 # Synchronize helm charts in git with the hosted version on S3.
 # The contents of /charts are thus made available under
-# https://s3-eu-west-1.amazonaws.com/public.wire.com/charts
+# https://s3-ca-central-1.amazonaws.com/public.social.network/charts
 # To use the charts:
-# helm repo add wire https://s3-eu-west-1.amazonaws.com/public.wire.com/charts
-# helm search wire
+# helm repo add society https://s3-ca-central-1.amazonaws.com/public.social.network/charts
+# helm search society
 
 # This script uses the helm s3 plugin,
 # for more info see https://github.com/hypnoglow/helm-s3
@@ -17,10 +17,10 @@ USAGE="Sync helm charts to S3. Usage: $0 to sync all charts or $0 <chart-directo
 branch=$(git rev-parse --abbrev-ref HEAD)
 if [ $branch == "master" ]; then
     PUBLIC_DIR="charts"
-    REPO_NAME="wire"
+    REPO_NAME="society"
 elif [ $branch == "develop" ]; then
     PUBLIC_DIR="charts-develop"
-    REPO_NAME="wire-develop"
+    REPO_NAME="society-develop"
 else
     echo "You are not on master or develop. Synchronizing charts on a custom branch will push them to the charts-custom helm repository in order not to interfere with versioning on master/develop."
     read -p "Are you sure you want to push to charts-custom? [yN] " -n 1 -r
@@ -30,7 +30,7 @@ else
         exit 1
     fi
     PUBLIC_DIR="charts-custom"
-    REPO_NAME="wire-custom"
+    REPO_NAME="society-custom"
 fi
 
 SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
@@ -67,14 +67,14 @@ else
 fi
 
 # index/sync charts to S3
-export AWS_REGION=eu-west-1
+export AWS_REGION=ca-central-1
 
 # PUBLIC_DIR is set to 'charts' for master or 'charts-develop' for develop above.
-S3_URL="s3://public.wire.com/$PUBLIC_DIR"
-PUBLIC_URL="https://s3-eu-west-1.amazonaws.com/public.wire.com/$PUBLIC_DIR"
+S3_URL="s3://public.social.network/$PUBLIC_DIR"
+PUBLIC_URL="https://s3-ca-central-1.amazonaws.com/public.social.network/$PUBLIC_DIR"
 
 # initialize index file only if file doesn't yet exist
-if ! aws s3api head-object --bucket public.wire.com --key "$PUBLIC_DIR/index.yaml" &> /dev/null ; then
+if ! aws s3api head-object --bucket public.social.network --key "$PUBLIC_DIR/index.yaml" &> /dev/null ; then
     echo "initializing fresh index.yaml"
     helm s3 init "$S3_URL" --publish "$PUBLIC_URL"
 fi
@@ -90,7 +90,7 @@ for chart in "${charts[@]}"; do
     tgz=$(ls "${chart}"-*.tgz)
     echo "syncing ${tgz}..."
     # Push the artifact only if it doesn't already exist
-    if ! aws s3api head-object --bucket public.wire.com --key "$PUBLIC_DIR/${tgz}" &> /dev/null ; then
+    if ! aws s3api head-object --bucket public.social.network --key "$PUBLIC_DIR/${tgz}" &> /dev/null ; then
         helm s3 push "$tgz" "$PUBLIC_DIR"
         printf "\n--> pushed %s to S3\n\n" "$tgz"
     else
@@ -115,9 +115,8 @@ if [[ $1 == *--reindex* || $2 == *--reindex* || $3 == *--reindex* ]]; then
 else
     # update local cache with newly pushed charts
     helm repo update
-    printf "\n--> Not reindexing by default. Pass the --reindex flag in case the index.yaml is incomplete. See all wire charts using \n helm search $REPO_NAME/ -l\n\n"
+    printf "\n--> Not reindexing by default. Pass the --reindex flag in case the index.yaml is incomplete. See all society charts using \n helm search $REPO_NAME/ -l\n\n"
 fi
-
 
 # TODO: improve the above script by exiting with an error if helm charts have changed but a version was not bumped.
 # TODO: hash comparison won't work directly: helm package ... results in new md5 hashes each time, even if files don't change. This is due to files being ordered differently in the tar file. See
@@ -125,7 +124,7 @@ fi
 # * https://github.com/helm/helm/issues/3612
 # cur_hash=($(md5sum ${tgz}))
 # echo $cur_hash
-# remote_hash=$(aws s3api head-object --bucket public.wire.com --key charts/${tgz} | jq '.ETag' -r| tr -d '"')
+# remote_hash=$(aws s3api head-object --bucket public.social.network --key charts/${tgz} | jq '.ETag' -r| tr -d '"')
 # echo $remote_hash
 # if [ "$cur_hash" != "$remote_hash" ]; then
 #     echo "ERROR: Current hash should be the same as the remote hash. Please bump the version of chart {$chart}."

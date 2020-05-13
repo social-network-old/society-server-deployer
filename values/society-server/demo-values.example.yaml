@@ -34,25 +34,25 @@ brig:
       internalQueue: integration-brig-events-internal
       prekeyTable: integration-brig-prekeys
     externalUrls:
-      nginz: https://api.example.com # change this
-      teamSettings: https://teams.example.com # change this (on unset if team settings are not used)
-      teamCreatorWelcome: https://teams.example.com/login # change this
-      teamMemberWelcome: https://society.example.com/download # change this
+      nginz: https://api-dev.social.network # change this
+      teamSettings: https://teams-dev.social.network # change this (on unset if team settings are not used)
+      teamCreatorWelcome: https://teams-dev.social.network/login # change this
+      teamMemberWelcome: https://society-dev.social.network/download # change this
     optSettings:
-      setCookieDomain: example.com # change this
+      setCookieDomain: social.network # change this
     emailSMS:
       general:
-        emailSender: mail@example.com # change this
+        emailSender: mail@social.network # change this
         smsSender: "insert-sms-sender-for-twilio" # change this if SMS support is desired
     smtp:
       host: demo-smtp # change this if you want to use your own SMTP server
       port: 25        # change this
       connType: plain # change this. Possible values: plain|ssl|tls
 #    proxy:
-#      httpProxy: "http://proxy.example.com"
-#      httpsProxy: "https://proxy.example.com"
+#      httpProxy: "http://proxy-dev.social.network"
+#      httpsProxy: "https://proxy-dev.social.network"
 #      noProxyList:
-#        - "local.example.com"
+#        - "local-dev.social.network"
 #        - "10.23.0.0/16"
 
 proxy:
@@ -61,10 +61,10 @@ proxy:
 #    tag: some-tag (only override if you want a newer/different version than what is in the chart)
 #  config:
 #    proxy:
-#      httpProxy: "http://proxy.example.com"
-#      httpsProxy: "https://proxy.example.com"
+#      httpProxy: "http://proxy-dev.social.network"
+#      httpsProxy: "https://proxy-dev.social.network"
 #      noProxyList:
-#        - "local.example.com"
+#        - "local-dev.social.network"
 #        - "10.23.0.0/16"
 
 cannon:
@@ -83,12 +83,12 @@ cargohold:
       # change if using real AWS
       s3Bucket: dummy-bucket
       s3Endpoint: http://fake-aws-s3:9000
-      s3DownloadEndpoint: https://assets.example.com
+      s3DownloadEndpoint: https://assets-dev.social.network
 #    proxy:
-#      httpProxy: "http://proxy.example.com"
-#      httpsProxy: "https://proxy.example.com"
+#      httpProxy: "http://proxy-dev.social.network"
+#      httpsProxy: "https://proxy-dev.social.network"
 #      noProxyList:
-#        - "local.example.com"
+#        - "local-dev.social.network"
 #        - "10.23.0.0/16"
 
 galley:
@@ -101,12 +101,12 @@ galley:
       replicaCount: 1
     settings:
       # prefix URI used when inviting users to a conversation by link
-      conversationCodeURI: https://example.com/join/ # change this
+      conversationCodeURI: https://social.network/join/ # change this
 #    proxy:
-#      httpProxy: "http://proxy.example.com"
-#      httpsProxy: "https://proxy.example.com"
+#      httpProxy: "http://proxy-dev.social.network"
+#      httpsProxy: "https://proxy-dev.social.network"
 #      noProxyList:
-#        - "local.example.com"
+#        - "local-dev.social.network"
 #        - "10.23.0.0/16"
 
 gundeck:
@@ -126,10 +126,10 @@ gundeck:
       sqsEndpoint: http://fake-aws-sqs:4568
       snsEndpoint: http://fake-aws-sns:4575
 #    proxy:
-#      httpProxy: "http://proxy.example.com"
-#      httpsProxy: "https://proxy.example.com"
+#      httpProxy: "http://proxy-dev.social.network"
+#      httpsProxy: "https://proxy-dev.social.network"
 #      noProxyList:
-#        - "local.example.com"
+#        - "local-dev.social.network"
 #        - "10.23.0.0/16"
 
 nginz:
@@ -143,7 +143,7 @@ nginz:
   nginx_conf:
     # using prod means mostly that some internal endpoints are not exposed
     env: prod
-    external_env_domain: example.com
+    external_env_domain: social.network
   # For demo mode only, we don't need to keep websocket connections open on upgrade:
   drainTimeout: 10
   terminationGracePeriodSeconds: 30
@@ -154,10 +154,25 @@ webapp:
 #    tag: some-tag (only override if you want a newer/different version than what is in the chart)
   config:
     externalUrls:
-      backendRest: nginz-https.example.com
-      backendWebsocket: nginz-ssl.example.com
-      backendDomain: example.com
-      appHost: app.example.com
+      backendRest: nginz-https-dev.social.network
+      backendWebsocket: nginz-ssl-dev.social.network
+      backendDomain: social.network
+      appHost: webapp-dev.social.network
+  
+  envVars: {
+    CSP_EXTRA_CONNECT_SRC: "https://*.social.network, wss://*.social.network",
+    CSP_EXTRA_IMG_SRC: "https://*.social.network",
+    CSP_EXTRA_SCRIPT_SRC: "https://*.social.network",
+    CSP_EXTRA_DEFAULT_SRC: "https://*.social.network",
+    CSP_EXTRA_FONT_SRC: "https://*.social.network",
+    CSP_EXTRA_FRAME_SRC: "https://*.social.network",
+    CSP_EXTRA_MANIFEST_SRC: "https://*.social.network",
+    CSP_EXTRA_OBJECT_SRC: "https://*.social.network",
+    CSP_EXTRA_MEDIA_SRC: "https://*.social.network",
+    CSP_EXTRA_PREFETCH_SRC: "https://*.social.network",
+    CSP_EXTRA_STYLE_SRC: "https://*.social.network",
+    CSP_EXTRA_WORKER_SRC: "https://*.social.network"
+  }
 
 team-settings:
   replicaCount: 1
@@ -165,10 +180,25 @@ team-settings:
 #    tag: some-tag (only override if you want a newer/different version than what is in the chart)
   config:
     externalUrls:
-      backendRest: nginz-https.example.com
-      backendWebsocket: nginz-ssl.example.com
-      backendDomain: example.com
-      appHost: app.example.com
+      backendRest: nginz-https-dev.social.network
+      backendWebsocket: nginz-ssl-dev.social.network
+      backendDomain: social.network
+      appHost: webapp-dev.social.network
+
+  envVars: {
+    CSP_EXTRA_CONNECT_SRC: "https://*.social.network, wss://*.social.network",
+    CSP_EXTRA_IMG_SRC: "https://*.social.network",
+    CSP_EXTRA_SCRIPT_SRC: "https://*.social.network",
+    CSP_EXTRA_DEFAULT_SRC: "https://*.social.network",
+    CSP_EXTRA_FONT_SRC: "https://*.social.network",
+    CSP_EXTRA_FRAME_SRC: "https://*.social.network",
+    CSP_EXTRA_MANIFEST_SRC: "https://*.social.network",
+    CSP_EXTRA_OBJECT_SRC: "https://*.social.network",
+    CSP_EXTRA_MEDIA_SRC: "https://*.social.network",
+    CSP_EXTRA_PREFETCH_SRC: "https://*.social.network",
+    CSP_EXTRA_STYLE_SRC: "https://*.social.network",
+    CSP_EXTRA_WORKER_SRC: "https://*.social.network"
+  }
 
 account-pages:
   replicaCount: 1
@@ -176,6 +206,21 @@ account-pages:
 #    tag: some-tag (only override if you want a newer/different version than what is in the chart)
   config:
     externalUrls:
-      backendRest: nginz-https.example.com
-      backendDomain: example.com
-      appHost: app.example.com
+      backendRest: nginz-https-dev.social.network
+      backendDomain: social.network
+      appHost: app-dev.social.network
+
+  envVars: {
+    CSP_EXTRA_CONNECT_SRC: "https://*.social.network, wss://*.social.network",
+    CSP_EXTRA_IMG_SRC: "https://*.social.network",
+    CSP_EXTRA_SCRIPT_SRC: "https://*.social.network",
+    CSP_EXTRA_DEFAULT_SRC: "https://*.social.network",
+    CSP_EXTRA_FONT_SRC: "https://*.social.network",
+    CSP_EXTRA_FRAME_SRC: "https://*.social.network",
+    CSP_EXTRA_MANIFEST_SRC: "https://*.social.network",
+    CSP_EXTRA_OBJECT_SRC: "https://*.social.network",
+    CSP_EXTRA_MEDIA_SRC: "https://*.social.network",
+    CSP_EXTRA_PREFETCH_SRC: "https://*.social.network",
+    CSP_EXTRA_STYLE_SRC: "https://*.social.network",
+    CSP_EXTRA_WORKER_SRC: "https://*.social.network"
+  }
