@@ -58,7 +58,7 @@ if [[ $s3_plugin_version != "0.9.0" ]]; then
     helm plugin install https://github.com/steven-sheehy/helm-s3.git --version v0.9.0
 else
     # double check we have the right version of the s3 plugin
-    plugin_sha=$(cat $HOME/.helm/plugins/helm-s3.git/.git/HEAD)
+    plugin_sha=$(cat $HOME/Library/helm/plugins/helm-s3.git/.git/HEAD)
     if [[ $plugin_sha != "f7ab4a8818f11380807da45a6c738faf98106d62" ]]; then
         echo "git hash doesn't match forked s3-plugin version (or maybe there is a path issue and your plugins are installed elsewhere? Attempting to re-install..."
         helm plugin remove s3
@@ -71,7 +71,7 @@ export AWS_REGION=ca-central-1
 
 # PUBLIC_DIR is set to 'charts' for master or 'charts-develop' for develop above.
 S3_URL="s3://public.social.network/$PUBLIC_DIR"
-PUBLIC_URL="https://s3-ca-central-1.amazonaws.com/public.social.network/$PUBLIC_DIR"
+PUBLIC_URL="https://s3.ca-central-1.amazonaws.com/public.social.network/$PUBLIC_DIR"
 
 # initialize index file only if file doesn't yet exist
 if ! aws s3api head-object --bucket public.social.network --key "$PUBLIC_DIR/index.yaml" &> /dev/null ; then
